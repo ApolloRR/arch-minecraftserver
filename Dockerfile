@@ -23,6 +23,9 @@ ADD config/nobody/ /home/nobody/
 # install app
 #############
 
+# install fontconfig to fix issues with JAVA 18
+RUN pacman -Sy fontconfig --noconfirm
+
 # make executable and run bash scripts to install app
 RUN chmod +x /root/*.sh && \
 	/bin/bash /root/install.sh "${release_tag_name}"
